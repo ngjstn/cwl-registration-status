@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException 
 from selenium import webdriver 
 import time 
+import datetime 
 
 def cwl_login(driver, login_name, password): 
     print('Navigating to CWL Login form...')
@@ -27,10 +29,28 @@ def cwl_login(driver, login_name, password):
 
 
 def get_registration_seat_status(driver): 
-    # seat_summary_table = driver.find_element(By.XPATH, "//table[contains(@class, 'table')][4]/tbody")
-    # for i in range()
-    print('Total Seats Remaining: %s' % driver.find_element(By.XPATH, "//table[contains(@class, 'table')][4]/tbody/tr[1]/td/strong").text)
-    time.sleep(5)
+    # title_xpath = list("//table[contains(@class, 'table')][4]/tbody/tr[i]/td")
+    # value_xpath = list("//table[contains(@class, 'table')][4]/tbody/tr[i]/td/strong")
+    # print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    try: 
+        while True:
+            print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            xpath = title_xpath = list("//table[contains(@class, 'table')][4]/tbody/tr[i]")
+            # x = driver.find_element(By.XPATH, "//table[contains(@class, 'table')][4]/tbody")
+            # y = x.find_element(By.CSS_SELECTOR, '*')
+            # y = x.find_elements(By.CSS_SELECTOR, "*")
+            for i in range(1,5): 
+                # title_xpath[47] = str(i)
+                # value_xpath[47] = str(i)
+                xpath[47] = str(i)
+                print(driver.find_element(By.XPATH, "".join(xpath)).text) 
+                # row_title = driver.find_element(By.XPATH, "".join(title_xpath)).text
+                # row_value = driver.find_element(By.XPATH, "".join(value_xpath)).text
+                # print('%s %s' % (row_title, row_value))
+            time.sleep(300)
+    except NoSuchElementException as e: 
+        print('ERROR: %s' % e)
+    # time.sleep(5)
 
 
 if __name__ == '__main__': 
