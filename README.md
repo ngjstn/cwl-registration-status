@@ -32,15 +32,19 @@ pip install smtplib
 
 ---
 
-### Phone Carrier Logistics :phone:
+### SMS-Email Logistics :phone:
+Email notifications are sent via Gmail from ```cwlwebscrape@gmail.com```. Sending via SMS is done using a recipient's phone number appended to an email specific gateway domain. 
+
 I've included a function that parses phone numbers from different carriers, ```parse_phone_number()```, which should *hopefully* contain the correct appended SMS gateway domains, although I'm probably missing a few carriers (oops) or the domain has been deprecated. I referenced a few of them [here](https://www.digitaltrends.com/mobile/how-to-send-a-text-from-your-email-account/).
 
 Additionally, some carriers such as Shaw require some extra prep work to initialize SMS-Email capabilities for your phone number. It's probably best that you look it up for yourself since it's likely different for everyone :(  
 
 ---
 
-### Actually Running the Script :japanese_ogre: 
+### Actually Running the Script 
 Make sure you're in the correct directory ```cwl-registration-web-scrape``` when running the command: 
 ```
 python automation.py
 ``` 
+
+
