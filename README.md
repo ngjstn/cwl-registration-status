@@ -43,4 +43,4 @@ Additionally, some carriers such as Shaw require some extra prep work to initial
 Make sure you're in the correct directory ```cwl-registration-web-scrape``` when running the command: 
 ```
 python automation.py
-`` 
+``` 
