@@ -1,8 +1,13 @@
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException 
 from selenium import webdriver 
+from email.message import EmailMessage
+import smtplib 
 import time 
 import datetime 
+
+SSL_PORT = 587
+
 
 def cwl_login(driver, login_name, password): 
     print('Navigating to CWL Login form...')
@@ -47,18 +52,65 @@ def get_registration_seat_status(driver):
                 # row_title = driver.find_element(By.XPATH, "".join(title_xpath)).text
                 # row_value = driver.find_element(By.XPATH, "".join(value_xpath)).text
                 # print('%s %s' % (row_title, row_value))
-            time.sleep(300)
+            time.sleep(10)
+            break
     except NoSuchElementException as e: 
         print('ERROR: %s' % e)
     # time.sleep(5)
 
 
+def send_email(to, subject, body): 
+    # bot gmail credentials 
+    un = "cwlwebscrape@gmail.com" 
+    pw = "xpqkzuwpnyskjvbe"
+
+    message = EmailMessage()
+    message['from'] = un
+    message['to'] = to 
+    message['subject'] = subject 
+    message.set_content(body) 
+
+    # initialize STMP server 
+    with smtplib.SMTP('smtp.gmail.com', SSL_PORT) as smtp: 
+        smtp.starttls() 
+        smtp.login(un, pw)
+        print('Sending Email to %s...' % to)
+        smtp.send_message(message)
+        print('Sent')
+
+
+def parse_phone_number(number, carrier): 
+    print('Parsing %s: %s' % (carrier, number))
+    carr = carrier.lower()
+    num = list(number) 
+    num.append('@')
+    if 'shaw' in carr: 
+        num += list('txt.shawmobile.ca')
+    elif 'at&t' in carr: 
+        num += list('txt.att.net')
+    elif 'virgin' in carr: 
+        num += list('vmobl.com')
+    elif 'verizon' in carr: 
+        num += list('vtext.com')
+    elif 't-mobile' in carr:
+        num += list('tmomail.net')
+    elif 'rogers' in carr: 
+        num += list('pcs.rogers.com')
+    else: 
+        print('Error: %s is not supported' % carrier)
+    return "".join(num)
+
+
 if __name__ == '__main__': 
     un = 'test'
     pw = 'password'
-    driver_exec_path = "C:\\Users\justin.ng\\Documents\\tests_vscode\\cwl_registration_status\\webdriver\\chromedriver.exe"
+    driver_exec_path = "C:\\Users\\justi\\OneDrive\\Documents\\cwl-registration-web-scrape\\webdriver\\chromedriver.exe"
     website = "https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept=CPEN&course=311&section=101"
-    # options = webdriver.ChromeOptions().add_experimental_option("excludeSwitches", ["enable-logging"])
+
+    # options = webdriver.ChromeOptions() 
+    # options.add_experimental_option("excludeSwitches", ["enable-logging"]) 
+    # options.headless = True 
+
     print('Starting web driver automation')
     with webdriver.Chrome(executable_path=driver_exec_path) as driver: 
         driver.set_window_size(1080, 800)
@@ -66,7 +118,7 @@ if __name__ == '__main__':
         print('*** %s ***' % driver.title)
 
         #cwl_login(driver, un, pw)
-        get_registration_seat_status(driver)
+        # get_registration_seat_status(driver)
 
     time.sleep(5)
     print('Closing web driver')
