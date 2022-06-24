@@ -8,6 +8,16 @@ import datetime
 
 SSL_PORT = 587
 
+carriers = {
+    'att' : '@mms.att.net',
+	'tmobile' : '@tmomail.net',
+	'verizon' : '@vtext.com',
+	'sprint' : '@page.nextel.com',
+    'shaw' : '@txt.shawmobile.ca', 
+    'virgin' : '@vmobile.com',
+    'rogers' : '@pcs.rogers.com'
+}
+
 
 def cwl_login(driver, login_name, password): 
     print('Navigating to CWL Login form...')
@@ -70,7 +80,7 @@ def send_email(to, subject, body):
     message['subject'] = subject 
     message.set_content(body) 
 
-    # initialize STMP server 
+    # initialize SMTP server 
     with smtplib.SMTP('smtp.gmail.com', SSL_PORT) as smtp: 
         smtp.starttls() 
         smtp.login(un, pw)
