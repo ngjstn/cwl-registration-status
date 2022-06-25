@@ -3,6 +3,17 @@ import smtplib
 
 SSL_PORT = 587
 
+gateway_domains = {
+    'att' : '@mms.att.net',
+	'tmobile' : '@tmomail.net',
+	'verizon' : '@vtext.com',
+	'sprint' : '@page.nextel.com',
+    'shaw' : '@txt.shawmobile.ca', 
+    'virgin' : '@vmobile.com',
+    'rogers' : '@pcs.rogers.com'
+}
+
+
 def send_email(to, subject, body): 
     # bot gmail credentials 
     un = "cwlwebscrape@gmail.com" 

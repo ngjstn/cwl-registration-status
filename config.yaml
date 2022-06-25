@@ -1,0 +1,23 @@
+user_contact: 
+  phone_number: '7783841911'
+  carrier: 'shaw'
+
+gmail_sms:
+  bot_creds:
+    address: 'cwlwebscrape@gmail.com'
+    app_pw: 'xpqkzuwpnyskjvbe'
+
+  gateway_domain: 
+    att: '@mms.att.net'
+    tmobile: '@tmomail.net'
+    verizon: '@vtext.com'
+    sprint: '@page.nextel.com'
+    shaw: '@txt.shawmobile.ca'
+    virgin: '@vmobile.com'
+    rogers: '@pcs.rogers.com'
+
+  ssl_port: 587
+
+driver: 
+  exec_path: 'C:\\Users\\justi\\OneDrive\\Documents\\cwl-registration-web-scrape\\webdriver\\chromedriver.exe'
+  scrape_dest: 'https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept=CPEN&course=311&section=101'
