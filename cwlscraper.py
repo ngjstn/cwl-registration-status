@@ -1,6 +1,6 @@
 import yaml 
 
-class Scraper(object): 
+class CWLscraper(object): 
     def __init__(self): 
         with open('config.yaml', 'r') as file: 
             print('Parsing config.yaml')
