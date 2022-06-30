@@ -2,6 +2,10 @@ user_contact:
   phone_number: '7783841911'
   carrier: 'shaw'
 
+cwl: 
+  username: 'testuser'
+  password: 'testpass'
+
 gmail_sms:
   bot_creds:
     address: 'cwlwebscrape@gmail.com'
