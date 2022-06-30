@@ -1,4 +1,4 @@
-user_contact: 
+contact: 
   phone_number: '7783841911'
   carrier: 'shaw'
 
@@ -7,11 +7,11 @@ cwl:
   password: 'testpass'
 
 gmail_sms:
-  bot_creds:
+  auth:
     address: 'cwlwebscrape@gmail.com'
-    app_pw: 'xpqkzuwpnyskjvbe'
+    token: 'xpqkzuwpnyskjvbe'
 
-  gateway_domain: 
+  domain: 
     att: '@mms.att.net'
     tmobile: '@tmomail.net'
     verizon: '@vtext.com'
@@ -20,8 +20,7 @@ gmail_sms:
     virgin: '@vmobile.com'
     rogers: '@pcs.rogers.com'
 
-  ssl_port: 587
-
 driver: 
-  exec_path: 'C:\\Users\\justi\\OneDrive\\Documents\\cwl-registration-web-scrape\\webdriver\\chromedriver.exe'
+  exec_path: 'C:\\Users\\justin.ng\\Documents\\tests_vscode\\cwl-registration-status\\webdriver\\chromedriver.exe'
+  # exec_path: 'C:\\Users\\justi\\OneDrive\\Documents\\cwl-registration-web-scrape\\webdriver\\chromedriver.exe'
   scrape_dest: 'https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept=CPEN&course=311&section=101'

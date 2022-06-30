@@ -52,7 +52,7 @@ def get_registration_seat_status(driver):
     try: 
         while True:
             print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-            xpath = title_xpath = list("//table[contains(@class, 'table')][4]/tbody/tr[i]")
+            xpath = list("//table[contains(@class, 'table')][4]/tbody/tr[i]")
             # x = driver.find_element(By.XPATH, "//table[contains(@class, 'table')][4]/tbody")
             # y = x.find_element(By.CSS_SELECTOR, '*')
             # y = x.find_elements(By.CSS_SELECTOR, "*")
