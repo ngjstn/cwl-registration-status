@@ -1,5 +1,6 @@
-contact: 
+recipient: 
   phone_number: '7783841911'
+  gmail: 'ngjustin2002@gmail.com'
   carrier: 'shaw'
 
 cwl: 
@@ -19,8 +20,11 @@ gmail_sms:
     shaw: '@txt.shawmobile.ca'
     virgin: '@vmobile.com'
     rogers: '@pcs.rogers.com'
-
+  
+  body_path: '.\\body.txt'
+  
 driver: 
-  exec_path: 'C:\\Users\\justin.ng\\Documents\\tests_vscode\\cwl-registration-status\\webdriver\\chromedriver.exe'
+  # exec_path: 'C:\\Users\\justin.ng\\Documents\\tests_vscode\\cwl-registration-status\\webdriver\\chromedriver.exe'
   # exec_path: 'C:\\Users\\justi\\OneDrive\\Documents\\cwl-registration-web-scrape\\webdriver\\chromedriver.exe'
+  exec_path: '.\\webdriver\\chromedriver.exe'
   scrape_dest: 'https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept=CPEN&course=311&section=101'
